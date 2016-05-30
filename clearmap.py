@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 import sys
 import mcpi.minecraft as minecraft
-import mcpi.block as block
 
 mc = minecraft.Minecraft.create()
+# wipe everything from map
 mc.setBlocks(-128,0,-128,128,64,128,0)
-if(len(sys.argv) > 1):
-	bid = int(sys.argv[1])
+
+# get block id
+if (len(sys.argv) > 1):
+	blockID = int(sys.argv[1])
 else:
-	bid = block.SANDSTONE.id
+	blockID = 2
 
-if bid < 0 or bid > 108:
-	bid = block.SANDSTONE.id
 
-mc.setBlocks(-128,0,-128,128,-64,128,bid)
+mc.setBlocks(-128,0,-128,128,-64,128,blockID)
